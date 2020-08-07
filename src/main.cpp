@@ -25,10 +25,10 @@ int savedTimer;
 
 #define powerPin 19
 
-#define chipSelect1 14 // A0
-#define chipSelect2 15 // A1
-#define chipSelect3 16
-#define chipSelect4 17
+#define chipSelect1 A1
+#define chipSelect2 A2 
+#define chipSelect3 A3
+#define chipSelect4 A4
 
 Tsys01 sensor1;
 Tsys01 sensor2;
@@ -45,7 +45,7 @@ bool readingDone = true;
 
 // ------------------------------------------
 // Debounce
-#define BUTTON_PIN 11          // the number of the pushbutton pin
+#define BUTTON_PIN 10          // the number of the pushbutton pin
 const int DEBOUNCE_DELAY = 30; // the debounce time; increase if the output flickers
 
 int lastSteadyState = LOW;          // the previous steady state from the input pin
