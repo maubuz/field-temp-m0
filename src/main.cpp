@@ -26,7 +26,7 @@ int savedTimer;
 #define powerPin 19
 
 #define chipSelect1 A1
-#define chipSelect2 A2 
+#define chipSelect2 A2
 #define chipSelect3 A3
 #define chipSelect4 A4
 
@@ -258,27 +258,6 @@ void gpsFixToScreen()
 // =======================================================
 void setup()
 {
-  pinMode(13, OUTPUT);
-  pinMode(BUTTON_PIN, INPUT_PULLUP);
-
-  pinMode(chipSelect1, OUTPUT); //  Tsys01 Sensor
-  pinMode(chipSelect2, OUTPUT); //  Tsys01 Sensor
-  pinMode(chipSelect3, OUTPUT); //  Tsys01 Sensor
-  pinMode(chipSelect4, OUTPUT); //  Tsys01 Sensor
-
-  // Set all CS pins high to avoid any floating logic
-  digitalWrite(chipSelect1, HIGH);
-  digitalWrite(chipSelect2, HIGH);
-  digitalWrite(chipSelect3, HIGH);
-  digitalWrite(chipSelect4, HIGH);
-
-  sensor1 = Tsys01(TSYS01_SPI, powerPin, chipSelect1);
-  sensor2 = Tsys01(TSYS01_SPI, powerPin, chipSelect2);
-  sensor3 = Tsys01(TSYS01_SPI, powerPin, chipSelect3);
-  sensor4 = Tsys01(TSYS01_SPI, powerPin, chipSelect4);
-
-  Serial.begin(115200); // For serial debug mode
-  sPrint("Initialising setup");
 
   // LCD
   //  lcd.begin(20, 4); // initialize the lcd in PlatformIO
@@ -290,6 +269,41 @@ void setup()
   lcd.print("TEMP. & GPS LOGGER");
   lcd.setCursor(0, 2); // go to the next line
   lcd.print("Design by Tony & Mau");
+
+  pinMode(13, OUTPUT);
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
+
+  delay(50);
+  pinMode(chipSelect1, OUTPUT); //  Tsys01 Sensor
+  delay(50);
+  pinMode(chipSelect2, OUTPUT); //  Tsys01 Sensor
+  delay(50);
+  pinMode(chipSelect3, OUTPUT); //  Tsys01 Sensor
+  delay(50);
+  pinMode(chipSelect4, OUTPUT); //  Tsys01 Sensor
+
+  // Set all CS pins high to avoid any floating logic
+  delay(50);
+  digitalWrite(chipSelect1, HIGH);
+  delay(50);
+  digitalWrite(chipSelect2, HIGH);
+  delay(50);
+  digitalWrite(chipSelect3, HIGH);
+  delay(50);
+  digitalWrite(chipSelect4, HIGH);
+  delay(50);
+
+  sensor1 = Tsys01(TSYS01_SPI, powerPin, chipSelect1);
+  delay(50);
+  sensor2 = Tsys01(TSYS01_SPI, powerPin, chipSelect2);
+  delay(50);
+  sensor3 = Tsys01(TSYS01_SPI, powerPin, chipSelect3);
+  delay(50);
+  sensor4 = Tsys01(TSYS01_SPI, powerPin, chipSelect4);
+  delay(50);
+
+  Serial.begin(115200); // For serial debug mode
+  sPrint("Initialising setup");
 
   if (!SD.begin(cardSelect))
   {
