@@ -1,6 +1,6 @@
 #include <Arduino.h>
 // Debug variables
-bool debugMode = true;
+bool debugMode = false;
 
 // ------------------------------------------
 // Liquid Crystal I2C
@@ -342,7 +342,7 @@ void setup()
     lcd.print("Writing to ");
     lcd.setCursor(0, 1);
     lcd.print(filename);
-    delay(1000);
+    delay(2000);
 
     pinMode(13, OUTPUT);
     lcd.setCursor(0, 3);
@@ -370,7 +370,7 @@ void setup()
   // Request updates on antenna status, comment out to keep quiet
   // GPS.sendCommand(PGCMD_ANTENNA);
 
-  delay(1000);
+  delay(4000);
 
   // Ask for firmware version
   // GPSSerial.println(PMTK_Q_RELEASE);
